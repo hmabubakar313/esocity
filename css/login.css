@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  /*   background-color: #3A8798; */
+}
+.body
+{
+    background-color: #3A8798;
+}
+.myulogo
+{
+    width: 70px;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+}
+.welcome
+{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15.5px;
+    /* line-height: 119.69%; */
+
+}
+.e
+{
+    font-family:  'Rajdhani', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    color: rgba(237, 214, 151, 0.8);
+
+}
+.society
+{
+    font-family: Rajdhani;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    color: #FB646B;
+}
+
+span.input-group-text
+{
+
+    position: absolute;
+    margin-right: -5px;
+    margin-top: 5px;
+    background-color:  #3f748f!important;
+    box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px 0px 0px 25px;
+    width: 30px;
+    height: 43px;
+    padding-top: 13px;
+    padding-left: 7px;
+    vertical-align: middle;
+    border: none;
+}
+.input_email
+{
+    height: 43px;
+    margin-top: 5px;
+    background-color: #327584;
+    box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    border: none;
+    padding: 20px; 
+    width: 300px;
+    color: white;
+    font-family: Roboto,sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    padding-left: 35px;
+}
+
+
+.card-body
+{
+    background-color: #214c56;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* border-radius: 25px; */
+}
+.input-group 
+{
+    margin-left: 30%;
+}
+.icon
+{
+    padding-bottom: 80%;
+    padding-left: 25%;
+}
