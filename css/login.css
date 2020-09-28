@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap');
 *
 {
     padding: 0;
@@ -54,7 +55,7 @@ span.input-group-text
     position: absolute;
     margin-right: -5px;
     margin-top: 5px;
-    background-color:  #3f748f!important;
+    background-color:  #165876 !important;
     box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 25px 0px 0px 25px;
     width: 30px;
@@ -66,6 +67,7 @@ span.input-group-text
 }
 .input_email
 {
+    position: center;
     height: 43px;
     margin-top: 5px;
     background-color: #327584;
@@ -75,26 +77,102 @@ span.input-group-text
     padding: 20px; 
     width: 300px;
     color: white;
-    font-family: Roboto,sans-serif;
+    font-family: 'Roboto',sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     padding-left: 35px;
+    background-position: relative;
 }
-
-
 .card-body
 {
     background-color: #214c56;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    /* border-radius: 25px; */
+    border-top-left-radius:25px;
+    border-top-right-radius:25px;
+    border-bottom-left-radius:25px;
+    border-bottom-right-radius:25px;
+    border-radius: 25px;
 }
 .input-group 
 {
-    margin-left: 30%;
+  
+    text-align: center !important;
 }
 .icon
 {
     padding-bottom: 80%;
     padding-left: 25%;
+    color: black;
+}
+.login
+{
+     
+        box-shadow:0px 6px 6px rgba(0, 0, 0, 0.25);
+        background-color:rgba(23.000000528991222, 89.00000229477882, 119.00000050663948, 1);
+        /* opacity:1; */
+        font-family: 'Quantico', sans-serif;
+        width:130px;
+        height:43px;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: normal;
+        border-top-left-radius:25px;
+        border-top-right-radius:25px;
+        border-bottom-left-radius:25px;
+        border-bottom-right-radius:25px;
+        border: none;
+}
+.create_account
+{
+    box-shadow:0px 6px 6px rgba(0, 0, 0, 0.25);
+        background-color:white;
+        /* opacity:1; */
+        font-family: 'Quantico', sans-serif;
+        width:130px;
+        height:43px;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: normal;
+        width:130px;
+        height:43px;
+      
+        border-top-left-radius:25px;
+        border-top-right-radius:25px;
+        border-bottom-left-radius:25px;
+        border-bottom-right-radius:25px;
+        border: none;
+}
+.forget_pass
+{
+    font-family: 'Roboto',sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 119.69%;
+    color: white;
+}
+.sign_up
+{
+    font-family: 'Roboto',sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 119.69%;
+    color: white;
+}
+.google_logo
+{
+    width: 42px;
+    height: 38px;
+}
+.fb_logo
+{
+    width: 40px;
+    height: 40px;
+}
+.twitter_logo
+{
+    width: 40px;
+    height: 40px;
 }
