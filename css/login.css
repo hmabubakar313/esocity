@@ -42,7 +42,7 @@
 }
 .society
 {
-    font-family: Rajdhani;
+    font-family: 'Rajdhani',sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
@@ -83,6 +83,10 @@ span.input-group-text
     font-size: 16px;
     padding-left: 35px;
     background-position: relative;
+}
+#card
+{
+    background: none;
 }
 .card-body
 {
@@ -163,8 +167,8 @@ span.input-group-text
 }
 .google_logo
 {
-    width: 42px;
-    height: 38px;
+    width: 44px;
+    height: 37px;
 }
 .fb_logo
 {
@@ -173,6 +177,6 @@ span.input-group-text
 }
 .twitter_logo
 {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
 }

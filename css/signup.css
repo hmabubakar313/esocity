@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body,html
+{
+    height: 100%;
+}
+.container-fluid
+{
+    height: 100%;
+}
+.people_image
+{
+    width: 492px;
+    height: 403px;
+}
+.myu_logo
+{
+    width: 300px;
+    height: 125px;
+    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25));
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+.e
+{
+    font-family: 'Roboto',sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 38px;
+    color: #6172A0;
+}
+span
+{
+    font-family: 'Rajdhani',sans-serif;
+    font-style: normal;
+    font-weight: 400px;
+    font-size: 32px;
+    line-height: 38px;
+    color:#d3d19e;
+}
