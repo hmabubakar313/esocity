@@ -3,9 +3,9 @@ from mysql.connector import Error
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='Electronics',
-                                         user='pynative',
-                                         password='pynative@#29')
+                                         database='esociety',
+                                         user='esociety',
+                                         password='admin')
 
     sql_select_Query = "select * from Laptop"
     cursor = connection.cursor()

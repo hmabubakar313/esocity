@@ -3,7 +3,7 @@ from mysql.connector import Error
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='wordpress',
+                                         database='esociety',
                                          user='root',
                                          password='admin')
     if connection.is_connected():

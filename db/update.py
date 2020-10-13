@@ -4,9 +4,9 @@ from mysql.connector import Error
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='electronics',
-                                         user='pynative',
-                                         password='pynative@#29')
+                                         database='esociety',
+                                         user='root',
+                                         password='admin')
     cursor = connection.cursor()
 
     print("Before updating a record ")
