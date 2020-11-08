@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'esociety/static/css/login.css' %}">
-    <link rel="stylesheet" href="https://
-    stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% load bootstrap4 %}
+    <link rel="stylesheet" href="{% static '/css/login.css' %}">
+    
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-zrnmn8R8KkWl12rAZFt4yKjxplaDaT7/EUkKm7AovijfrQItFWR7O/JJn4DAa/gx" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Esociety</title>
@@ -16,7 +18,7 @@
 <header>
        <div class="container">
         <div class="row pt-5">
-            <img src="{% static '../images/myu_logo.png' %}" class="myulogo"  alt="myulogo">
+            <img src="{% static '/esociety/static/images/myu_logo.png' %}" class="myulogo"  alt="myulogo">
         </div>
         <div class="row">
             <div class="col-lg-12 col-sm-12 col-md-12">
@@ -33,9 +35,7 @@
                 <div class="card border-0" id="card">
                     <div class="card-body text-center border-0">
                      <p class="welcome text-center"> Welcome to <span class="society" style="font-size: 24px;"><span class="e" style="font-size: 24px;">e</span>Society</span></p>
-                                <form action="">
-                                    {% csrf_token %}
-                                    
+                                <form action="" method="POST">    
                                     <div class="container">
                                         <div class="row " >
                                             <div class="col-lg-12 col-md-12 col-sm-12 ">
@@ -50,7 +50,7 @@
                                                      <span class="input-group-text ">
                                                          <em class="fas fa-envelope icon"></em></span>
                                                    </div>
-                                                   <input type="text" class="input_email       " placeholder="Email address" id="usr" name="username">
+                                                   <input type="text" class="input_email" placeholder="Email address" id="usr" name="username">
                                                </div>
                                                <div class="input-group mb-3 d-flex justify-content-center">
                                                    <div class="input-group-prepend ">
