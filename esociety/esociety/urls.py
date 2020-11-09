@@ -10,8 +10,8 @@ admin.autodiscover()
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
-    path('', views.login,name='login'),
-    path(r'^signup/',views.signup,name='signup'),
+    path('login/', views.login,name='login'),
+    path('signup/',views.signup,name='signup'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 

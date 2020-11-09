@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static % }
+    {% load static %}
     {% load bootstrap4 %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esociety</title>
-    <link rel="stylesheet" href="../css/signup.css">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-zrnmn8R8KkWl12rAZFt4yKjxplaDaT7/EUkKm7AovijfrQItFWR7O/JJn4DAa/gx" crossorigin="anonymous">
@@ -16,9 +16,9 @@
         <div class="row ">
             <div class="col-lg-6 col-md-6 col-sm-6" >
              <div>
-                <img  class="myu_logo rounded mx-auto d-block mt-5"  src="../images/myu_logo.png" alt="">
+                <img  class="myu_logo rounded mx-auto d-block mt-5"  src="{% static 'images/myu_logo.png' %}" alt="">
                 <br>
-                <img class="people_image rounded mx-auto d-block pt-2" src="../images/people.jpg" alt="">
+                <img class="people_image rounded mx-auto d-block pt-2" src="{%  static 'images/people.jpg' %}" alt="">
              </div>
                 <p class="welcome text-center">
                     Welcome To #<span class="e">e</span><span class="society">Society</span>
