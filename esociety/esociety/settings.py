@@ -25,7 +25,7 @@ SECRET_KEY = 'wdfmvj1c&9_lr!7ujy!kamv(^&r224v7wqvi=6h5pg(y9t-q9+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 
@@ -78,8 +78,14 @@ WSGI_APPLICATION = 'esociety.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'mysql'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'esociety',
+        'USER': 'root',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'OPTION':{
+                       'read_default_file': '/etc/mysql/my.cnf',
+        },
     }
 }
 
