@@ -1,5 +1,4 @@
 import mysql.connector as mysql
-
 #establishing the connection
 conn = mysql.connect(
    user='root', password='admin', host='localhost', database='esociety'
@@ -10,13 +9,15 @@ print(conn)
 cursor = conn.cursor()
 
 # *Dropping EMPLOYEE table if already exists.
-cursor.execute("DROP TABLE IF EXISTS STUDENT")
+cursor.execute("DROP TABLE IF EXISTS students")
 
 
 # Creating table as per requirement
-sql ='''CREATE TABLE student(
-   username VARCHAR(255) NOT NULL,
-   e_mail VARCHAR(255))'''
+cursor.execute('''CREATE TABLE students (username VARCHAR(255) NOT NULL,
+   e_mail VARCHAR(255),
+   password INT,
+   birthday INT,
+   reg_no INT)''')
 # cursor.execute(sql)
 cursor.execute("SHOW TABLES")
 tables = cursor.fetchall()
