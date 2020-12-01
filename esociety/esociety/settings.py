@@ -83,6 +83,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'admin',
         'HOST': 'localhost',
+        'PORT': '3306',
         'OPTION':{
                        'read_default_file': '/etc/mysql/my.cnf',
         },
