@@ -13,22 +13,9 @@ cursor.execute("DROP TABLE IF EXISTS students")
 
 
 # Creating table as per requirement
-cursor.execute('''CREATE TABLE students (username VARCHAR(255) NOT NULL,
-   e_mail VARCHAR(255),
-   password INT,
-   birthday INT,
-   reg_no INT)''')
-# cursor.execute(sql)
-cursor.execute("SHOW TABLES")
-tables = cursor.fetchall()
- ## it returns list of tables present in the database
-for table in tables:
-    print(table)
-
-
 # #Closing the connection
 conn.close()
-# # * insering into database
+#* insering into database
 # conn = mysql.connector.connect(
    # user='root', password='admin', host='localhost', database='esociety')
 
