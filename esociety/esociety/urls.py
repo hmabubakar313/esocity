@@ -12,7 +12,7 @@ urlpatterns = [
     path('admin/', admin.site.urls), 
     path('login/', views.login,name='login'),
     path('signup/',views.signup,name='signup'),
-    path('save_signup/',views.save_signup,name='save_signup'),
+    path('save/',views.save,name='save' ),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
