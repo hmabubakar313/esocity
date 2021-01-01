@@ -23,18 +23,18 @@ conn.close()
 # cursor = conn.cursor()
 
 # # Preparing SQL query to INSERT a record into the database.
-# sql = """INSERT INTO STUDENT(
-#    USERNAME,E_MAIL , PASSWORD, REG_NO,)
-#    VALUES ('admin','admin@.com', 123,123 )"""
+sql = """INSERT INTO students(
+   USERNAME,E_MAIL , PASSWORD, REG_NO,)
+   VALUES ('admin','admin@.com', 123,123 )"""
 
-# try:
-#    # Executing the SQL command
-#    cursor.execute(sql)
-#     #  Commit your changes in the database
-#    conn.commit()
+try:
+   # Executing the SQL command
+   cursor.execute(sql)
+    #  Commit your changes in the database
+   conn.commit()
 
-# except: 
-#      conn.rollback()
+except: 
+     conn.rollback()
 #    # Rolling back in case of error
   
 

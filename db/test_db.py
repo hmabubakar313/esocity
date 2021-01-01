@@ -8,6 +8,7 @@ esociety = mysql.connector.connect(
 )
 
 mycursor = esociety.cursor()
+mycursor.execute("DROP TABLE IF EXISTS students")
 mycursor.execute("CREATE TABLE students(username VARCHAR(255),email  VARCHAR(255),password  VARCHAR(255),reg_no  VARCHAR(255))")
 mycursor = esociety.cursor()
 mycursor.execute("ALTER TABLE students ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY") 
