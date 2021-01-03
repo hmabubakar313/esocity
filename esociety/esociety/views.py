@@ -32,39 +32,60 @@ def save(request):
             'reg_no':reg_no,
         }
     if (username=='hmabubakar313'):
+        try:
+            conn = mysql.connector.connect(user='root', password='admin', host='localhost', database='esociety')
+            cursor = conn.cursor()
+            #Dropping EMPLOYEE table if already exists.
+            cursor.execute("DROP TABLE IF EXISTS students")
+            #Creating table as per requirement
+            tableQuery = """CREATE TABLE students ( 
+                                Id int(11) NOT NULL,
+                                username varchar(250) NOT NULL,
+                                e_mail varchar(255) NOT NULL,
+                                password int(20) NOT NULL,
+                                birthday Date NOT NULL,
+                                reg_no varchar(255) NOT NULL,
+                                PRIMARY KEY (Id)) """
+            cursor = conn.cursor()
+            cursor.execute(tableQuery)
+            print("Laptop Table created successfully ")
+            conn.close()
+            conn = mysql.connector.connect(host='localhost',
+                                                database='esociety',
+                                                user='root',
+                                                password='admin')
+            cursor = conn.cursor()
+        except mysql.connector.Error as error:
+                    print("Failed to create table in MySQL: {}".format(error))
+        finally:
+            if (conn.is_connected()):
+                cursor.close()
+                conn.close()
+                print("MySQL connection is closed")
+        try:
+            connection = mysql.connector.connect(host='localhost',
+                                         database='esociety',
+                                         user='root',
+                                         password='admin')
+            inserQuery = """INSERT INTO students (Id,username,e_mail ,password, birthday, reg_no) 
+            VALUES 
+            (1, "username", "e_mail", password,"birthday","reg_no") """
+
+            cursor = connection.cursor()
+            cursor.execute(inserQuery)
+            connection.commit()
+            print(cursor.rowcount, "Record inserted successfully into Laptop table")
+            cursor.close()
+
+        except mysql.connector.Error as error:
+             print("Failed to insert record into Laptop table {}".format(error))
+
+        finally:
+            if (connection.is_connected()):
+                connection.close()
+                print("MySQL connection is closed")
         return render(request,"test.html",{'person':person})
-        conn = mysql.connector.connect(user='root', password='admin', host='localhost', database='esociety')
-        cursor = conn.cursor()
-        #Dropping EMPLOYEE table if already exists.
-        cursor.execute("DROP TABLE IF EXISTS STUDENT")
-        #Creating table as per requirement
-        conn.execute("CREATE TABLE students(username VARCHAR(255),email  VARCHAR(255),password  VARCHAR(255),reg_no  VARCHAR(255))")
-        conn.close()
-        conn = mysql.connector.connect(host='localhost',
-                                            database='esociety',
-                                            user='root',
-                                            password='admin')
-        mySql_insert_query = """INSERT INTO Laptop (Id, Name, Price, Purchase_date) 
-                            VALUES 
-                            (username, e_mail,password,birthday,reg_no) """
 
-        cursor = conn.cursor()
-        cursor.execute(mySql_insert_query)
-        conn.commit()
-        print(cursor.rowcount, "Record inserted successfully into Laptop table")
-        cursor.close()
-    # except mysql.connector.Error as error:
-    #     print("Failed to insert record into Laptop table {}".format(error))
-
-    # finally:
-    #     if (conn.is_connected()):
-    #         conn.close()
-    #         print("MySQL connection is closed")
     else:
     # print(request.POST.get)
              return HttpResponse('<h1>Page  found</h1>')
-# try:
-    # cursor = conn.cursor()
-   
-   
-#
