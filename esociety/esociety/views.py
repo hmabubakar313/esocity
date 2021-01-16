@@ -9,6 +9,18 @@ from mysql.connector import errorcode
 
 # from .models import students
 def login(request):
+    if request.method =='POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        e_mail = request.POST['email']
+        reg_no = request.POST['reg_no']
+        """ person={
+            'username':username,
+            'password':password,
+            'email':e_mail,
+            'birthday':birthday,
+            'reg_no':reg_no,
+        } """
     return render(request,"login.html")
     # return render(request,"login.html")
 
@@ -22,15 +34,14 @@ def save(request):
         username = request.POST['username']
         password = request.POST['password']
         e_mail = request.POST['email']
-        birthday = request.POST['birthday']
         reg_no = request.POST['reg_no']
         person={
             'username':username,
             'password':password,
             'email':e_mail,
-            'birthday':birthday,
             'reg_no':reg_no,
         }
+
     if (username=='hmabubakar313'):
         try:
             conn = mysql.connector.connect(user='root', password='admin', host='localhost', database='esociety')
@@ -39,11 +50,11 @@ def save(request):
             cursor.execute("DROP TABLE IF EXISTS students")
             #Creating table as per requirement
             tableQuery = """CREATE TABLE students ( 
-                                Id int(11) NOT NULL,
-                                username varchar(250) NOT NULL,
+                                Id int(11) NOT NULL ,
+                                username varchar(250) NOT NULL AUTO_INCREMENT,
                                 e_mail varchar(255) NOT NULL,
                                 password int(20) NOT NULL,
-                                birthday Date NOT NULL,
+                                birthday DATE NOT NULL,
                                 reg_no varchar(255) NOT NULL,
                                 PRIMARY KEY (Id)) """
             cursor = conn.cursor()
@@ -67,12 +78,12 @@ def save(request):
                                          database='esociety',
                                          user='root',
                                          password='admin')
-            inserQuery = """INSERT INTO students (Id,username,e_mail ,password, birthday, reg_no) 
+            insertQuery = """INSERT INTO students (Id,username,e_mail ,password, birthday, reg_no) 
             VALUES 
-            (1, "username", "e_mail", password,"birthday","reg_no") """
-
+            (1, '{}', '{}', '{}','{}','{}') """.format(username,e_mail,password,birthday,reg_no)
+            print(insertQuery)
             cursor = connection.cursor()
-            cursor.execute(inserQuery)
+            cursor.execute(insertQuery)
             connection.commit()
             print(cursor.rowcount, "Record inserted successfully into Laptop table")
             cursor.close()
