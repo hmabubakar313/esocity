@@ -115,20 +115,22 @@ def home(request):
                                             database='esociety',
                                             user='root',
                                             password='admin')
-            getQuery = """GET DATA FROM students (username,e_mail ,password, reg_no)
+            getQuery = """SELECT students FROM esociety WHERE (username,e_mail ,password, reg_no)
             VALUES
-            ('{}', '{}', '{}','{}') """.format(username, e_mail, password,  reg_no)
-            # print(insertQuery)
+            ('{}', '{}', '{}','{}')""".format(username, e_mail, password,  reg_no)
+            print(getQuery)
             print(username,e_mail,password,reg_no)
-            cursor = connection.cursor()
-            cursor.execute(getQuery)
-            connection.commit()
-            print(cursor.rowcount, "Record get successfully from students table")
             if (username==username):
                 return render(request, "home.html", {'person': person})
             else:
                 return HttpResponse('<h1>Page Not found</h1>')
+            cursor = connection.cursor()
+            cursor.execute(getQuery)
+            connection.commit()
             cursor.close()
+            print(cursor.rowcount, "Record get successfully from students table")
+            
+            
 
         except mysql.connector.Error as error:
                 print("Failed to get record from students table {}".format(error))
