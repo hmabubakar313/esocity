@@ -35,8 +35,18 @@ def save(request):
             'birthday': birthday,
             'reg_no': reg_no,
         }
-
-    if (username == 'hmabubakar313'):
+        print(username)
+        conn = mysql.connector.connect(
+                user='root', password='admin', host='localhost', database='esociety')
+        cursor = conn.cursor()
+        getQuery = """SELECT * FROM students WHERE username='username' and password='password'""" 
+        cursor = conn.cursor()
+        cursor.execute(getQuery)
+        print("students Table record get successfully ")
+        conn.close()
+        print(username)
+        print(password)  
+    if (username != username):
         try:
             conn = mysql.connector.connect(
                 user='root', password='admin', host='localhost', database='esociety')
@@ -48,7 +58,7 @@ def save(request):
                                 Id int(11) NOT NULL AUTO_INCREMENT,
                                 username varchar(250) NOT NULL,
                                 e_mail varchar(255) NOT NULL,
-                                password int(20) NOT NULL,
+                                password varchar(20) NOT NULL,
                                 birthday DATE NOT NULL,
                                 reg_no varchar(255) NOT NULL,
                                 PRIMARY KEY (Id)) """
@@ -75,7 +85,7 @@ def save(request):
                                          password='admin')
             insertQuery = """INSERT INTO students (Id,username,e_mail ,password, birthday, reg_no)
             VALUES
-            (1, '{}', '{}', '{}','{}','{}') """.format(username, e_mail, password, birthday, reg_no)
+            ('{}', '{}', '{}', '{}','{}','{}') """.format(id,username, e_mail, password, birthday, reg_no)
             # print(insertQuery)
             cursor = connection.cursor()
             cursor.execute(insertQuery)
@@ -118,9 +128,9 @@ def home(request):
             getQuery = """SELECT students FROM esociety WHERE (username,e_mail ,password, reg_no)
             VALUES
             ('{}', '{}', '{}','{}')""".format(username, e_mail, password,  reg_no)
-            print(getQuery)
-            print(username,e_mail,password,reg_no)
-            if (username==username):
+            # print(getQuery)
+            # print(username,e_mail,password,reg_no)
+            if (username==username and password==password):
                 return render(request, "home.html", {'person': person})
             else:
                 return HttpResponse('<h1>Page Not found</h1>')
