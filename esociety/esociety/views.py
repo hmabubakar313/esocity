@@ -130,7 +130,7 @@ def home(request):
             # print(getQuery)
             # print(username,e_mail,password,reg_no)
             if (username==username and password==password):
-                return render(request, "home.html", {'person': person})
+                return render(request, "index.html", {'person': person})
             else:
                 return HttpResponse('<h1>Page Not found</h1>')
             cursor = connection.cursor()
