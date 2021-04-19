@@ -46,7 +46,7 @@ def save(request):
         conn.close()
         print(username)
         print(password)  
-    if (username != username):
+    if (username == username): 
         try:
             conn = mysql.connector.connect(
                 user='root', password='admin', host='localhost', database='esociety')
@@ -55,13 +55,12 @@ def save(request):
             cursor.execute("DROP TABLE IF EXISTS students")
             # Creating table as per requirement
             tableQuery = """CREATE TABLE students (
-                                Id int(11) NOT NULL AUTO_INCREMENT,
+                                user_id int(11) NOT NULL AUTO_INCREMENT,
                                 username varchar(250) NOT NULL,
                                 e_mail varchar(255) NOT NULL,
                                 password varchar(20) NOT NULL,
                                 birthday DATE NOT NULL,
-                                reg_no varchar(255) NOT NULL,
-                                PRIMARY KEY (Id)) """
+                                reg_no varchar(255) NOT NULL """
             cursor = conn.cursor()
             cursor.execute(tableQuery)
             print("students Table created successfully ")
@@ -83,10 +82,10 @@ def save(request):
                                          database='esociety',
                                          user='root',
                                          password='admin')
-            insertQuery = """INSERT INTO students (Id,username,e_mail ,password, birthday, reg_no)
+            insertQuery = """INSERT INTO students (username,e_mail ,password, birthday, reg_no)
             VALUES
-            ('{}', '{}', '{}', '{}','{}','{}') """.format(id,username, e_mail, password, birthday, reg_no)
-            # print(insertQuery)
+            ('{}','{}', '{}', '{}','{}') """.format(username, e_mail, password, birthday, reg_no) #!here in birhtday error datatype problem
+            print(insertQuery)
             cursor = connection.cursor()
             cursor.execute(insertQuery)
             connection.commit()
@@ -100,7 +99,8 @@ def save(request):
             if (connection.is_connected()):
                 connection.close()
                 print("MySQL connection is closed")
-        return render(request, "test.html", {'person': person})
+                
+            return render(request, "test.html", {'person': person})
 
     else:
     # print(request.POST.get)
@@ -111,12 +111,11 @@ def home(request):
         username = request.POST['username']
         password = request.POST['password']
         e_mail = request.POST['e_mail']
-        """ birthday = request.POST['birthday'] """
         reg_no = request.POST['reg_no']
         person = {
             'username': username,
             'password': password,
-            'email': e_mail,
+            'e_mail': e_mail,
             'reg_no': reg_no,
         }
 
@@ -127,7 +126,7 @@ def home(request):
                                             password='admin')
             getQuery = """SELECT students FROM esociety WHERE (username,e_mail ,password, reg_no)
             VALUES
-            ('{}', '{}', '{}','{}')""".format(username, e_mail, password,  reg_no)
+            ('{}', '{}', '{}','{}')""".format(username, e_mail, password, reg_no)
             # print(getQuery)
             # print(username,e_mail,password,reg_no)
             if (username==username and password==password):
