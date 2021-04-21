@@ -14,6 +14,7 @@ urlpatterns = [
     path('signup/',views.signup,name='signup'),
     path('save/',views.save,name='save'),
     path('home/',views.home,name='home'),
+    path('list/',views.list,name="users-list")
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 

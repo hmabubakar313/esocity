@@ -153,4 +153,36 @@ def home(request):
     else:
         return HttpResponse('<h1>Page Not found</h1>')
 
+
+def list(request):
+
+        try:
+            connection = mysql.connector.connect(host='localhost',
+                                            database='esociety',
+                                            user='root',
+                                            password='admin')
+            getQuery = """SELECT * From students"""
+          
+           
+            print(getQuery)
+            cursor = connection.cursor()
+            x=cursor.execute(getQuery)
+            result=cursor.fetchall()
+            connection.commit()
+            cursor.close()
+            print(cursor)
+            return render(request, "list.html", {'person': result})
+            print(cursor.rowcount, "Record get successfully from students table")
+        except mysql.connector.Error as error:
+                print("Failed to get record from students table {}".format(error))
+
+        finally:
+            if (connection.is_connected()):
+                connection.close()
+                print("MySQL connection is closed")
+            else:
+                print("MYSQL is not closed")
+    
+    
+
    
