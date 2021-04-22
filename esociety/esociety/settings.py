@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "bootstrap4",
     "jquery",
+    'fontawesome_5',
     
 ]
 

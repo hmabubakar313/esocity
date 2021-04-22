@@ -16,13 +16,14 @@
         <tr>
             
             <th>User ID</th>
-            <th>User Name </th>
-            <th>User EmailS</th>
+            <th>User Name</th>
+            <th>User Email</th>
             <th>User Pass</th>
             <th>User DOB</th>
-            <th>User Reg_no</th>
-           
-            
+            <th>User Reg_No</th>
+            <th>Add User</th>
+            <th>Delete User</th>
+
         </tr>
        </tbody>
     </thead>
@@ -32,10 +33,14 @@
             {%  for column in row %}
              
                 <td>{{column}}</td> 
-             
+               
             {% endfor %}
             <br>
+            <td><a href="{% url 'add-user' %}"><button class="btn btn-primary"><i class="fas fa-user-plus"></i></button></a></td>
+            <td><a href=""><button class="btn btn-primary"><i class="fas fa-user-minus"></i></button></a></td>
         </tr>
+     
+             
         
         {% endfor %}
     </table>
