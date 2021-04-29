@@ -155,13 +155,12 @@ def home(request):
 
 
 def list(request):
-
-        try:
+    try:
             connection = mysql.connector.connect(host='localhost',
                                             database='esociety',
                                             user='root',
                                             password='admin')
-            getQuery = """SELECT * From students"""
+            getQuery = """SELECT * From students """
             print(getQuery)
             cursor = connection.cursor()
             cursor.execute(getQuery)
@@ -171,10 +170,10 @@ def list(request):
             # print(cursor)
             return render(request, "list.html", {'person': result})
             print(cursor.rowcount, "Record get successfully from students table")
-        except mysql.connector.Error as error:
-                print("Failed to get record from students table {}".format(error))
+    except mysql.connector.Error as error:
+        print("Failed to get record from students table {}".format(error))
 
-        finally:
+    finally:
             if (connection.is_connected()):
                 connection.close()
                 print("MySQL connection is closed")
@@ -269,3 +268,27 @@ def save_user(request):
     else:
     # print(request.POST.get)
              return HttpResponse('<h1>Page NOT found</h1>')
+            # ! deleting User
+def delete_user(request,user_id):
+        try:
+            connection = mysql.connector.connect(host='localhost',
+                                            database='esociety',
+                                            user='root',
+                                            password='admin')
+            deleteQuery = """DELETE FROM  students WHERE id=user_id"""
+            print(deleteQuery)
+            cursor = connection.cursor()
+            cursor.execute(deleteQuery)
+            connection.commit()
+            cursor.close()
+            return redirect("users-list")
+            print(cursor.rowcount, "Record get successfully from students table")
+        except mysql.connector.Error as error:
+            print("Failed to get record from students table {}".format(error))
+
+        finally:
+            if (connection.is_connected()):
+                connection.close()
+                print("MySQL connection is closed")
+            else:
+                print("MYSQL is not closed")

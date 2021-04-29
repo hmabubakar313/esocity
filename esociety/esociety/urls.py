@@ -17,6 +17,7 @@ urlpatterns = [
     path('list/',views.list,name='users-list'),
     path('add-user/',views.add_user,name='add-user'),
     path('save-user/',views.save_user,name='save-user'),
+    path('delete-user/<int:user_id>/',views.delete_user,name='delete-user'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 

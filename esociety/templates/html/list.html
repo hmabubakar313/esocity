@@ -10,7 +10,7 @@
 </head>
 <body>
     {% block content %}
-    <table  width="100%" class="table table-hover">
+    <table  width="100%" class="table table-hover ">
     <thead>
        <tbody>
         <tr>
@@ -31,13 +31,15 @@
         {% for row in person %}
         <tr>
             {%  for column in row %}
-             
+                   
                 <td>{{column}}</td> 
                
             {% endfor %}
             <br>
             <td><a href="{% url 'add-user' %}"><button class="btn btn-primary"><i class="fas fa-user-plus"></i></button></a></td>
-            <td><a href=""><button class="btn btn-primary"><i class="fas fa-user-minus"></i></button></a></td>
+            <!-- {% url 'delete-user' id='user_id'  %}-->
+            <td><a href=" "><button class="btn btn-primary"><i class="fas fa-user-minus"></i></button></a></td>
+           
         </tr>
      
              
