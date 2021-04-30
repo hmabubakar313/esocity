@@ -168,7 +168,7 @@ def list(request):
             connection.commit()
             cursor.close()
             # print(cursor)
-            return render(request, "list.html", {'person': result})
+            return render(request, "list.html", {'person': result,'id':id})
             print(cursor.rowcount, "Record get successfully from students table")
     except mysql.connector.Error as error:
         print("Failed to get record from students table {}".format(error))
@@ -268,21 +268,22 @@ def save_user(request):
     else:
     # print(request.POST.get)
              return HttpResponse('<h1>Page NOT found</h1>')
-            # ! deleting User
-def delete_user(request,user_id):
+           # ! deleting User
+def delete_user(request,id):
         try:
             connection = mysql.connector.connect(host='localhost',
                                             database='esociety',
                                             user='root',
                                             password='admin')
-            deleteQuery = """DELETE FROM  students WHERE id=user_id"""
+            deleteQuery =  "DELETE FROM students WHERE user_id=%s"
+            
             print(deleteQuery)
             cursor = connection.cursor()
-            cursor.execute(deleteQuery)
+            cursor.execute(deleteQuery,(id,))
             connection.commit()
             cursor.close()
             return redirect("users-list")
-            print(cursor.rowcount, "Record get successfully from students table")
+            print(cursor.rowcount, "Record deleted successfully from students table")
         except mysql.connector.Error as error:
             print("Failed to get record from students table {}".format(error))
 
