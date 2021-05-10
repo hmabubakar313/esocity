@@ -12,15 +12,16 @@ admin.autodiscover()
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
-    path('admin/login-user/', views.login,name='login'),
-    path('admin/login-user/home/',views.home,name='home'),
-    path('signup/',views.signup,name='admin/signup'),
-    path('save/',views.save,name='admin/save'),
+    path('admin/login_user/', views.login,name='login'),
+    path('admin/login_user/home/',views.home,name='home'),
+    path('admin/signup/',views.signup,name='signup'),
+    path('admin/signup/admin/save/',views.save,name='admin/save'),
     path('list/',views.list,name='admin/users-list'),
     path('add-user/',views.add_user,name='admin/add-user'),
     path('save-user/',views.save_user,name='admin/save-user'),
     path('delete-user/<int:id>/',views.delete_user,name='admin/delete-user'),
     path('add-post/',views.add_post,name='admin/add-post' ),
+    # importing urls from blogpost app
     path('',include('blogpost.urls')),
    
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

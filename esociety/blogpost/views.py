@@ -5,4 +5,4 @@ from django.shortcuts import redirect, render
 
 # Create your views here.
 def post(request):
-    return render(request,"html/blogpost.html")
+    return render(request,"blogpost.html")
