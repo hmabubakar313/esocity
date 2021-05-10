@@ -268,7 +268,7 @@ def save_user(request):
     else:
     # print(request.POST.get)
              return HttpResponse('<h1>Page NOT found</h1>')
-           # ! deleting User
+           
 def delete_user(request,id):
         try:
             connection = mysql.connector.connect(host='localhost',
