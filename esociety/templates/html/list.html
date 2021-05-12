@@ -41,9 +41,9 @@
             {% endfor %}
            
             <br>
-            <td><a href="{% url 'admin/users-list' %}"><button class="btn btn-primary"><i class="fas fa-user-plus"></i></button></a></td>
+            <td><a href="{% url 'add-user' %}"><button class="btn btn-primary"><i class="fas fa-user-plus"></i></button></a></td>
            
-            <td><a href="{% url 'admin/users-list' id=row.0 %}"><button class="btn btn-primary"><i class="fas fa-user-minus"></i></button></a></td>
+            <td><a href="{% url 'delete-user' id=row.0 %}"><button class="btn btn-primary"><i class="fas fa-user-minus"></i></button></a></td>
             
            
         </tr>
