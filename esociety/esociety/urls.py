@@ -16,10 +16,10 @@ urlpatterns = [
     path('home/',views.home,name='home'),
     path('signup/',views.signup,name='signup'),
     path('save/',views.save,name='save'),
-    path('list/',views.list,name='users-list'),
-    path('add-user/',views.add_user,name='add-user'),
-    path('save-user/',views.save_user,name='save-user'),
-    path('delete-user/<int:id>/',views.delete_user,name='delete-user'),
+    path('admin/list/',views.list,name='users-list'),
+    path('admin/add-user/',views.add_user,name='add-user'),
+    path('admin/save-user/',views.save_user,name='save-user'),
+    path('admin/delete-user/<int:id>/',views.delete_user,name='delete-user'),
     # importing urls from blogpost app
     path('',include('blogpost.urls')),
    

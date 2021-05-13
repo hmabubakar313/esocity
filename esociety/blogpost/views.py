@@ -6,3 +6,6 @@ from django.shortcuts import redirect, render
 # Create your views here.
 def post(request):
     return render(request,"blogpost.html")
+
+def create_post(request):
+    return render(request,"create_post.html")
