@@ -7,5 +7,5 @@ from django.shortcuts import redirect, render
 def post(request):
     return render(request,"blogpost.html")
 
-def create_post(request):
-    return render(request,"create_post.html")
+def profile(request):
+    return render(request,"profile.html")
